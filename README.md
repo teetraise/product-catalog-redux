@@ -1,70 +1,167 @@
-# Getting Started with Create React App
+# Product Catalog Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Приложение каталога товаров с поддержкой Redux для управления состоянием, созданное для учебного проекта.
 
-## Available Scripts
+## Описание
 
-In the project directory, you can run:
+Это одностраничное приложение (SPA) для управления каталогом товаров с следующими возможностями:
 
-### `npm start`
+- ✅ Управление состоянием с помощью Redux Toolkit
+- ✅ Добавление, редактирование и удаление товаров
+- ✅ Поиск и фильтрация товаров по категориям
+- ✅ Сортировка товаров по различным параметрам
+- ✅ Асинхронные действия с middleware
+- ✅ Локальное кэширование данных в localStorage
+- ✅ Поддержка темной/светлой темы
+- ✅ Адаптивный дизайн
+- ✅ Современный UI с анимациями
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Технологии
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **React 19** - библиотека для создания пользовательских интерфейсов
+- **Redux Toolkit** - современный способ работы с Redux
+- **React Redux** - официальные React биндинги для Redux
+- **CSS Variables** - для поддержки тем
+- **LocalStorage API** - для кэширования данных
 
-### `npm test`
+## Структура проекта
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/          # React компоненты
+│   ├── LoadingSpinner/  # Компонент загрузки
+│   ├── ProductCard/     # Карточка товара
+│   ├── ProductFilters/  # Фильтры и поиск
+│   ├── ProductForm/     # Форма добавления/редактирования
+│   └── ThemeToggle/     # Переключатель темы
+├── hooks/               # Кастомные хуки
+│   └── redux.js         # Типизированные Redux хуки
+├── store/               # Redux store и слайсы
+│   ├── index.js         # Конфигурация store
+│   ├── productsSlice.js # Слайс для товаров
+│   └── themeSlice.js    # Слайс для темы
+├── utils/               # Утилиты
+│   └── localStorage.js  # Работа с localStorage
+├── App.js               # Главный компонент
+├── App.css              # Глобальные стили
+└── index.js             # Точка входа
+```
 
-### `npm run build`
+## Установка и запуск
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Предварительные требования
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (версия 14 или выше)
+- npm или yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Шаги установки
 
-### `npm run eject`
+1. **Клонируйте репозиторий:**
+   ```bash
+   git clone <URL_РЕПОЗИТОРИЯ>
+   cd product-catalog-redux
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Установите зависимости:**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Запустите приложение в режиме разработки:**
+   ```bash
+   npm start
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. **Откройте браузер и перейдите по адресу:**
+   ```
+   http://localhost:3000
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Приложение автоматически перезагрузится при изменении файлов.
 
-## Learn More
+## Доступные команды
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `npm start` - запуск в режиме разработки
+- `npm run build` - сборка для продакшена
+- `npm test` - запуск тестов
+- `npm run eject` - извлечение конфигурации (необратимо)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Функциональность
 
-### Code Splitting
+### Управление товарами
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Добавление товара:** Нажмите кнопку "Добавить товар" в шапке
+- **Редактирование:** Нажмите кнопку "Редактировать" на карточке товара
+- **Удаление:** Нажмите кнопку "Удалить" на карточке товара
+- **Поиск:** Используйте поле поиска для фильтрации по названию или описанию
+- **Фильтрация:** Выберите категорию в выпадающем списке
+- **Сортировка:** Выберите поле и порядок сортировки
 
-### Analyzing the Bundle Size
+### Темы
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Переключение между светлой и темной темой с помощью кнопки в шапке
+- Настройка темы сохраняется в localStorage
 
-### Making a Progressive Web App
+### Кэширование
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Данные товаров автоматически сохраняются в localStorage
+- При перезагрузке страницы данные восстанавливаются из кэша
+- Настройки фильтров и темы также сохраняются
 
-### Advanced Configuration
+## Архитектура Redux
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Store
 
-### Deployment
+Приложение использует Redux Toolkit для управления состоянием:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **productsSlice** - управление списком товаров, фильтрами, состоянием загрузки
+- **themeSlice** - управление текущей темой приложения
 
-### `npm run build` fails to minify
+### Middleware
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Redux Toolkit Query** - для асинхронных операций
+- **localStorage middleware** - для автоматического сохранения состояния
+
+## Особенности реализации
+
+1. **Типизированные хуки** - `useAppDispatch` и `useAppSelector` для лучшей типизации
+2. **Мемоизация** - использование селекторов для оптимизации производительности
+3. **Обработка ошибок** - централизованная обработка ошибок в Redux
+4. **Валидация форм** - клиентская валидация данных товаров
+5. **Адаптивный дизайн** - поддержка мобильных устройств
+6. **Accessibility** - поддержка клавиатурной навигации и screen readers
+
+## Требования проекта
+
+✅ **Менеджер состояния:** Redux Toolkit для управления состоянием  
+✅ **CRUD операции:** Добавление, редактирование, удаление товаров  
+✅ **Асинхронные действия:** Middleware для работы с данными  
+✅ **Динамический UI:** Обновление интерфейса при изменении состояния  
+✅ **Кэширование:** Сохранение данных в localStorage  
+✅ **Темная/светлая тема:** Переключение тем с сохранением настроек  
+✅ **Сохранение состояния:** Восстановление данных при перезагрузке  
+
+## DevOps и развертывание
+
+Проект настроен для автоматического развертывания:
+
+1. **Клонирование и установка:**
+   ```bash
+   git clone <URL_РЕПОЗИТОРИЯ>
+   cd product-catalog-redux
+   npm install
+   npm start
+   ```
+
+2. **Конфигурация окружения:**
+   - `package.json` - управление зависимостями
+   - `.gitignore` - исключение файлов из версионного контроля
+   - `public/` - статические файлы
+
+## Автор
+
+Учебный проект для демонстрации работы с Redux и современными практиками React разработки.
+
+## Лицензия
+
+MIT
